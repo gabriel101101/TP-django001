@@ -1,0 +1,39 @@
+{% extends "laBiblioteca/base.html" %}
+{% load static %}
+{% block title %} Ingreso | La biblioteca {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'laBiblioteca/style/ingresar.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="container py-4 bg-white mx-w">
+        <h1 class="fw-bold mb-4 text-primary text-center">Ingreso</h1>
+
+ 
+{{error}}
+
+
+
+<form class="container-fluid pb-2 form" action="/ingresar/" method="POST">
+    {% csrf_token %}
+
+    <label for="exampleFormControlInput1" class="form-label"><h3>Usuario</h3></label>
+    <div class="d-flex flex-column mb-2" >
+        {{form.username}}
+    </div>
+    <label for="exampleFormControlInput1" class="form-label"><h3>Contraseña</h3></label>
+    <div class="d-flex flex-column mb-2">
+        {{form.password}}
+    </div><br>
+    
+    <div style="text-align: center; align-items: center;">
+        <button class="btn btn-primary mb-1 py-2 w-50">
+            Acceder
+        </button>
+    </div>
+    
+</form>
+
+        
+    <div>
+{% endblock %}
